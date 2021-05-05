@@ -1,0 +1,422 @@
+{
+  "nodes": [
+    {
+      "type": "command",
+      "name": "react",
+      "guid": "ce5163d3-d614-4f49-8660-11cfe5352a30",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "11a5b098-d58d-4998-9604-c5c8693c1892"
+          ]
+        }
+      ],
+      "x": 179,
+      "y": 239
+    },
+    {
+      "type": "response",
+      "name": "reaction menu",
+      "guid": "11a5b098-d58d-4998-9604-c5c8693c1892",
+      "reactionFields": [],
+      "embedfields": [],
+      "saveToVariable": "reactionmenu",
+      "saveToVariableType": "server",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": [
+            "6cfc5200-098c-4e6e-a00b-52d11f030c85"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "ce5163d3-d614-4f49-8660-11cfe5352a30"
+        }
+      ],
+      "x": 449,
+      "y": 238,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "3721FF",
+        "React to one of the followings :",
+        "",
+        "",
+        "",
+        "",
+        ":man_mage: Mage\n:bow_and_arrow: Ranger\n:crossed_swords: DragonKnight\n:gear: Steam Mechanicus",
+        "",
+        "",
+        "",
+        "false",
+        "reactionmenu",
+        "server"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Listener",
+      "guid": "6cfc5200-098c-4e6e-a00b-52d11f030c85",
+      "reactionFields": [
+        "🧙‍♂️",
+        "🏹",
+        "⚔️",
+        "⚙️"
+      ],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "🧙‍♂️",
+          "connections": [
+            "470ef5a8-478f-4a7f-b7e0-4c0ec2e922b5"
+          ]
+        },
+        {
+          "label": "🏹",
+          "connections": [
+            "5e1b78e0-7c38-443a-96bc-dda8512699f3"
+          ]
+        },
+        {
+          "label": "⚔️",
+          "connections": [
+            "899269f4-6634-4cef-b672-482e0ee0eaaf"
+          ]
+        },
+        {
+          "label": "⚙️",
+          "connections": [
+            "a1ed0579-a18f-4cc6-afe9-4612dbe6e171"
+          ]
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "11a5b098-d58d-4998-9604-c5c8693c1892"
+        }
+      ],
+      "x": 656,
+      "y": 249,
+      "rtype": "Reaction",
+      "rsubtype": "Add Reaction Listener",
+      "formdata": [
+        "${serverVars.reactionmenu.id}",
+        "500000",
+        "reactionemoji",
+        "reactionuser",
+        "BOOL_TRUE@@"
+      ],
+      "formnames": [
+        "message",
+        "duration",
+        "reactionemoji",
+        "reactionuser",
+        "react"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "add Mage role",
+      "guid": "470ef5a8-478f-4a7f-b7e0-4c0ec2e922b5",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6cfc5200-098c-4e6e-a00b-52d11f030c85"
+        }
+      ],
+      "x": 869,
+      "y": 5,
+      "rtype": "User Action",
+      "rsubtype": "Add Role to User",
+      "formdata": [
+        "${tempVars.reactionuser.id}",
+        "mage"
+      ],
+      "formnames": [
+        "user",
+        "roleName"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Add Ranger Role",
+      "guid": "5e1b78e0-7c38-443a-96bc-dda8512699f3",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6cfc5200-098c-4e6e-a00b-52d11f030c85"
+        }
+      ],
+      "x": 1032,
+      "y": 114,
+      "rtype": "User Action",
+      "rsubtype": "Add Role to User",
+      "formdata": [
+        "${tempVars.reactionuser.id}",
+        "ranger"
+      ],
+      "formnames": [
+        "user",
+        "roleName"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Add dragonknight Role",
+      "guid": "899269f4-6634-4cef-b672-482e0ee0eaaf",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6cfc5200-098c-4e6e-a00b-52d11f030c85"
+        }
+      ],
+      "x": 1034,
+      "y": 249,
+      "rtype": "User Action",
+      "rsubtype": "Add Role to User",
+      "formdata": [
+        "${tempVars.reactionuser.id}",
+        "dragonknight"
+      ],
+      "formnames": [
+        "user",
+        "roleName"
+      ]
+    },
+    {
+      "type": "response",
+      "name": "Add Steam Mechanicus Role",
+      "guid": "a1ed0579-a18f-4cc6-afe9-4612dbe6e171",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "6cfc5200-098c-4e6e-a00b-52d11f030c85"
+        }
+      ],
+      "x": 885,
+      "y": 416,
+      "rtype": "User Action",
+      "rsubtype": "Add Role to User",
+      "formdata": [
+        "${tempVars.reactionuser.id}",
+        "steam mechanicus"
+      ],
+      "formnames": [
+        "user",
+        "roleName"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "info",
+      "guid": "7006d970-12c6-4dc6-848f-57a933b7df3d",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "3abdd8e4-066f-4276-9229-53c29264c125"
+          ]
+        }
+      ],
+      "x": 146,
+      "y": 566
+    },
+    {
+      "type": "response",
+      "name": "Information",
+      "guid": "3abdd8e4-066f-4276-9229-53c29264c125",
+      "reactionFields": [],
+      "embedfields": [],
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "7006d970-12c6-4dc6-848f-57a933b7df3d"
+        }
+      ],
+      "x": 360,
+      "y": 564,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandChannel.id}",
+        "4019FF",
+        "Information",
+        "",
+        "",
+        "",
+        "",
+        "Total Members | ${dbsVars.guild.memberCount}\nGuild Region | ${dbsVars.guild.region}\nGuild Name | ${dbsVars.guild.name}\n\n\n",
+        "",
+        "",
+        "",
+        "false",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    },
+    {
+      "type": "command",
+      "name": "help",
+      "guid": "fb750ee3-dd1b-4e82-bb48-1d3c56970015",
+      "outputs": [
+        {
+          "label": "responses",
+          "connections": [
+            "680c2553-7284-4524-b0a0-8590fb3f1548"
+          ]
+        }
+      ],
+      "x": 131,
+      "y": 708
+    },
+    {
+      "type": "response",
+      "name": "helpmessage",
+      "guid": "680c2553-7284-4524-b0a0-8590fb3f1548",
+      "reactionFields": [],
+      "embedfields": [
+        {
+          "name": "!help",
+          "value": "Shows the help menu",
+          "inline": "true"
+        },
+        {
+          "name": "!react",
+          "value": "Shows a reaction menu (buggy)",
+          "inline": "true"
+        },
+        {
+          "name": "!info",
+          "value": "Shows server information",
+          "inline": "true"
+        }
+      ],
+      "saveToVariable": "",
+      "saveToVariableType": "temp",
+      "outputs": [
+        {
+          "label": "next response",
+          "connections": []
+        }
+      ],
+      "inputs": [
+        {
+          "label": "trigger",
+          "id": "fb750ee3-dd1b-4e82-bb48-1d3c56970015"
+        }
+      ],
+      "x": 338,
+      "y": 717,
+      "rtype": "Message",
+      "rsubtype": "Send Embed",
+      "formdata": [
+        "${dbsVars.CommandAuthor.user.dmChannel}",
+        "F700FF",
+        "Commands",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "",
+        "Stay safe!",
+        "BOOL_TRUE@@",
+        "",
+        "temp"
+      ],
+      "formnames": [
+        "channelname",
+        "color",
+        "title",
+        "url",
+        "authorname",
+        "authorimageurl",
+        "authorlink",
+        "description",
+        "thumbnail",
+        "image",
+        "footer",
+        "timestamp",
+        "saveToVariable",
+        "saveToVariableType"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,141 @@
+{
+  "command": [
+    {
+      "name": "react",
+      "actions": [
+        {
+          "name": "reaction menu",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "3721FF",
+          "title": "React to one of the followings :",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": ":man_mage: Mage\n:bow_and_arrow: Ranger\n:crossed_swords: DragonKnight\n:gear: Steam Mechanicus",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "reactionmenu",
+          "savetovariabletype": "server"
+        },
+        {
+          "name": "Listener",
+          "category": "Reaction",
+          "type": "Add Reaction Listener",
+          "reactionActions": {
+            "🧙‍♂️": [
+              {
+                "name": "add Mage role",
+                "category": "User Action",
+                "type": "Add Role to User",
+                "user": "${tempVars.reactionuser.id}",
+                "rolename": "mage"
+              }
+            ],
+            "🏹": [
+              {
+                "name": "Add Ranger Role",
+                "category": "User Action",
+                "type": "Add Role to User",
+                "user": "${tempVars.reactionuser.id}",
+                "rolename": "ranger"
+              }
+            ],
+            "⚔️": [
+              {
+                "name": "Add dragonknight Role",
+                "category": "User Action",
+                "type": "Add Role to User",
+                "user": "${tempVars.reactionuser.id}",
+                "rolename": "dragonknight"
+              }
+            ],
+            "⚙️": [
+              {
+                "name": "Add Steam Mechanicus Role",
+                "category": "User Action",
+                "type": "Add Role to User",
+                "user": "${tempVars.reactionuser.id}",
+                "rolename": "steam mechanicus"
+              }
+            ]
+          },
+          "message": "${serverVars.reactionmenu.id}",
+          "duration": "500000",
+          "reactionemoji": "reactionemoji",
+          "reactionuser": "reactionuser",
+          "react": "BOOL_TRUE@@"
+        }
+      ]
+    },
+    {
+      "name": "info",
+      "actions": [
+        {
+          "name": "Information",
+          "category": "Message",
+          "type": "Send Embed",
+          "channelname": "${dbsVars.CommandChannel.id}",
+          "color": "4019FF",
+          "title": "Information",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "Total Members | ${dbsVars.guild.memberCount}\nGuild Region | ${dbsVars.guild.region}\nGuild Name | ${dbsVars.guild.name}\n\n\n",
+          "thumbnail": "",
+          "image": "",
+          "footer": "",
+          "timestamp": "false",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    },
+    {
+      "name": "help",
+      "actions": [
+        {
+          "name": "helpmessage",
+          "category": "Message",
+          "type": "Send Embed",
+          "fields": [
+            {
+              "name": "!help",
+              "value": "Shows the help menu",
+              "inline": "true"
+            },
+            {
+              "name": "!react",
+              "value": "Shows a reaction menu (buggy)",
+              "inline": "true"
+            },
+            {
+              "name": "!info",
+              "value": "Shows server information",
+              "inline": "true"
+            }
+          ],
+          "channelname": "${dbsVars.CommandAuthor.user.dmChannel}",
+          "color": "F700FF",
+          "title": "Commands",
+          "url": "",
+          "authorname": "",
+          "authorimageurl": "",
+          "authorlink": "",
+          "description": "",
+          "thumbnail": "",
+          "image": "",
+          "footer": "Stay safe!",
+          "timestamp": "BOOL_TRUE@@",
+          "savetovariable": "",
+          "savetovariabletype": "temp"
+        }
+      ]
+    }
+  ]
+}
